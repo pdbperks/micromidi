@@ -16,11 +16,12 @@ let noteOn = 0
 let bank = 0
 basic.showString("=")
 let note = [60, 62, 64, 67, 69]
+note.reverse()
 basic.forever(function () {
     if (input.buttonIsPressed(Button.A)) {
         if (noteOn == 0) {
-            noteR = Math.constrain(Math.map(input.rotation(Rotation.Pitch), -60, 10, 0, 4), 0, 4)
-            //noteR = Math.randomRange(0, 4)
+            noteR = Math.constrain(Math.map(input.rotation(Rotation.Pitch), -10, 50, 0, 4), 0, 4)
+            // noteR = Math.randomRange(0, 4)
             midi.channel(1).noteOn(note[noteR])
             noteOn = 1
         }
