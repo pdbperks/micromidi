@@ -19,7 +19,8 @@ let note = [60, 62, 64, 67, 69]
 basic.forever(function () {
     if (input.buttonIsPressed(Button.A)) {
         if (noteOn == 0) {
-            noteR = Math.randomRange(0, 4)
+            noteR = Math.constrain(Math.map(input.rotation(Rotation.Roll), -60, 10, 0, 4), 0, 4)
+            //noteR = Math.randomRange(0, 4)
             midi.channel(1).noteOn(note[noteR])
             noteOn = 1
         }
